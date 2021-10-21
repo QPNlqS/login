@@ -6,8 +6,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,8 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
   providers: [],
