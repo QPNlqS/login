@@ -3,7 +3,11 @@
 }
 
 label {
-  min-width: 85px;
+  min-width: 95px;
+}
+
+form {
+  width: 80%;
 }
 
 img {
