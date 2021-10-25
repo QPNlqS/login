@@ -1,0 +1,74 @@
+{
+  "id": "123456",
+  "name": "Jane Dampf",
+  "email": "jane@dampf.de",
+  "password": "einSicheresPasswort",
+  "favoriteGenre": "Graphic Novels, Adventure, Memoirs",
+  "books": [
+    {
+      "title": "Northanger Abbey",
+      "author": "Austen, Jane",
+      "year": 1814
+    },
+    {
+      "title": "War and Peace",
+      "author": "Tolstoy, Leo",
+      "year": 1865
+    },
+    {
+      "title": "Anna Karenina",
+      "author": "Tolstoy, Leo",
+      "year": 1875
+    },
+    {
+      "title": "Mrs. Dalloway",
+      "author": "Woolf, Virginia",
+      "year": 1925
+    },
+    {
+      "title": "The Hours",
+      "author": "Cunnningham, Michael",
+      "year": 1999
+    },
+    {
+      "title": "Huckleberry Finn",
+      "author": "Twain, Mark",
+      "year": 1865
+    },
+    {
+      "title": "Bleak House",
+      "author": "Dickens, Charles",
+      "year": 1870
+    },
+    {
+      "title": "Tom Sawyer",
+      "author": "Twain, Mark",
+      "year": 1862
+    },
+    {
+      "title": "A Room of One's Own",
+      "author": "Woolf, Virginia",
+      "year": 1922
+    },
+    {
+      "title": "Harry Potter",
+      "author": "Rowling, J.K.",
+      "year": 2000
+    },
+    {
+      "title": "One Hundred Years of Solitude",
+      "author": "Marquez",
+      "year": 1967
+    },
+    {
+      "title": "Hamlet, Prince of Denmark",
+      "author": "Shakespeare",
+      "year": 1603
+    },
+    {
+      "title": "Lord of the Rings",
+      "author": "Tolkien, J.R.",
+      "year": 1937
+    }
+  ]
+}

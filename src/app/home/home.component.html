@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row py-5 d-flex align-items-center justify-content-center">
+    <div class="col-md-5 card my-3">
+      <div class="card-body">
+        <img
+          class="profile-image circle d-block m-auto"
+          src="../../assets/person.jpg"
+          alt="Profile"
+        />
+        <div class="text-center my-3">
+          <h2 class="fw-bold">{{ user?.name }}</h2>
+          <p>{{ user?.email }}</p>
+          <p class="fst-italic">{{ user?.favoriteGenre }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 my-3 book-list">
+      <ul *ngFor="let book of user?.books">
+        <li>
+          <p class="m-0">{{ book.title }}</p>
+          <p class="fst-italic">
+            {{ book.author }}
+            ({{ book.year }})
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

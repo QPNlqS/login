@@ -2,22 +2,22 @@
   width: 100%;
 }
 
-label {
+.text-label {
   min-width: 95px;
 }
 
-form {
+.formgroup {
   width: 80%;
 }
 
-img {
+.cover-image {
   object-fit: cover;
   width: 100%;
   border-radius: 0.25rem;
 }
 
 @media (max-width: 767.98px) {
-  img {
+  .cover-image {
     max-height: 50vh;
   }
 }
