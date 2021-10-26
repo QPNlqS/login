@@ -17,6 +17,5 @@ export class HomeComponent {
 
   logout() {
     this.userService.logoutUser();
-    this.router.navigate(['login']);
   }
 }

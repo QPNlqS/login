@@ -43,6 +43,7 @@ export class UserService {
         return res.body;
       }
     }
+    this.logoutUser();
     return null;
   }
 
@@ -52,6 +53,7 @@ export class UserService {
 
   logoutUser() {
     localStorage.setItem('isLoggedIn', 'false');
+    this.router.navigate(['login']);
   }
 
   isUserLoggedIn() {
