@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +21,7 @@ export class LoginComponent {
   loginFailed = false;
   loginFailedMessage = 'Something went wrong';
 
-  constructor(private loginService: LoginService) {}
+  constructor(private userService: UserService) {}
 
   async login() {
     if (this.form.invalid) {
@@ -31,7 +30,7 @@ export class LoginComponent {
       this.loginFailedMessage = 'Please provide valid credentials.';
       return;
     } else {
-      const success = await this.loginService.login(
+      const success = await this.userService.login(
         this.email.value,
         this.password.value
       );

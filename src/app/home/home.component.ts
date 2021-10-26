@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
-import { LoginService } from '../services/login.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +11,12 @@ import { LoginService } from '../services/login.service';
 export class HomeComponent {
   user: User | null | undefined;
 
-  constructor(private loginService: LoginService, private router: Router) {
-    this.loginService.initialize().then((user) => (this.user = user));
+  constructor(private userService: UserService, private router: Router) {
+    this.userService.initialize().then((user) => (this.user = user));
   }
 
   logout() {
-    this.loginService.logoutUser();
+    this.userService.logoutUser();
     this.router.navigate(['login']);
   }
 }

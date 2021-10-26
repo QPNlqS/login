@@ -6,7 +6,7 @@ import { User } from '../models/user';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
   async login(email: string, password: string) {
@@ -22,7 +22,7 @@ export class LoginService {
     if (res.ok && res.body) {
       this.loginUser();
       this.saveUserId(res.body.toString());
-      this.router.navigateByUrl('/home');
+      this.router.navigate(['home']);
       return true;
     }
     return false;
