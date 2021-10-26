@@ -13,13 +13,32 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
+  get email() {
+    return this.form.get('email')!;
+  }
+  get password() {
+    return this.form.get('password')!;
+  }
+  loginFailed = false;
+  loginFailedMessage = 'Something went wrong';
 
   constructor(private loginService: LoginService) {}
 
-  login() {
-    this.loginService.login(
-      this.form.get('email')!.value,
-      this.form.get('password')!.value
-    );
+  async login() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.loginFailed = true;
+      this.loginFailedMessage = 'Please provide valid credentials.';
+      return;
+    } else {
+      const success = await this.loginService.login(
+        this.email.value,
+        this.password.value
+      );
+      if (!success) {
+        this.loginFailed = true;
+        this.loginFailedMessage = 'Wrong credentials. Please try again.';
+      }
+    }
   }
 }

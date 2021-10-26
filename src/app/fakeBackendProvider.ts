@@ -15,22 +15,24 @@ import * as testUser from './user.json';
 
 @Injectable()
 export class FakeBackendHttpInterceptor implements HttpInterceptor {
-  private userJsonPath = 'assets/user.json';
   constructor(private http: HttpClient) {}
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    return this.handleRequests(req, next);
-  }
 
-  handleRequests(req: HttpRequest<any>, next: HttpHandler) {
-    const { url } = req;
-    if (url.endsWith('/login')) {
-      const user: User = testUser;
+  intercept(req: HttpRequest<any>) {
+    const { url, params } = req;
+    const user: User = testUser;
+    if (
+      url.endsWith('/login') &&
+      params.get('email') == user.email &&
+      params.get('password') == user.password
+    ) {
+      return of(new HttpResponse({ status: 200, body: user.id })).pipe(
+        delay(500)
+      );
+    }
+    if (url.endsWith('/initialize')) {
       return of(new HttpResponse({ status: 200, body: user })).pipe(delay(500));
     }
-    return next.handle(req);
+    return of(new HttpResponse({ status: 400 })).pipe(delay(500));
   }
 }
 
