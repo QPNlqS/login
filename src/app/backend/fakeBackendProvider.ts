@@ -20,12 +20,9 @@ export class FakeBackendHttpInterceptor implements HttpInterceptor {
       params.get('email') == user.email &&
       params.get('password') == user.password
     ) {
-      return of(new HttpResponse({ status: 200, body: user.id })).pipe(
+      return of(new HttpResponse({ status: 200, body: user })).pipe(
         delay(1000)
       );
-    }
-    if (url.endsWith('/initialize')) {
-      return of(new HttpResponse({ status: 200, body: user }));
     }
     return of(new HttpResponse({ status: 400 })).pipe(delay(1000));
   }

@@ -9,9 +9,9 @@ import { User } from '../models/user';
 export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string): Promise<boolean | User | null> {
     const res = await this.http
-      .get('http://localhost:4200/user/login', {
+      .get<User>('http://localhost:4200/user/login', {
         params: {
           email,
           password,
@@ -19,52 +19,42 @@ export class UserService {
         observe: 'response',
       })
       .toPromise();
-    if (res.ok && res.body) {
-      this.loginUser();
-      this.saveUserId(res.body.toString());
-      this.router.navigate(['home']);
-      return true;
+    const isSuccessful = res.ok && res.body;
+    if (isSuccessful) {
+      this.completeLogin(res.body!);
     }
-    return false;
+    return isSuccessful;
   }
 
-  async initialize() {
-    const userId = this.getActiveUserId();
-    if (userId) {
-      const res = await this.http
-        .get<User>('http://localhost:4200/user/initialize', {
-          params: {
-            userId,
-          },
-          observe: 'response',
-        })
-        .toPromise();
-      if (res.ok) {
-        return res.body;
-      }
-    }
-    this.logoutUser();
-    return null;
-  }
-
-  loginUser() {
-    localStorage.setItem('isLoggedIn', 'true');
+  private completeLogin(user: User) {
+    this.setIsLoggedIn();
+    this.setUser(JSON.stringify(user));
+    this.router.navigate(['home']);
   }
 
   logoutUser() {
     localStorage.setItem('isLoggedIn', 'false');
+    localStorage.removeItem('user');
     this.router.navigate(['login']);
   }
 
-  isUserLoggedIn() {
+  isLoggedIn() {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
 
-  saveUserId(id: string) {
-    localStorage.setItem('userId', id);
+  private setIsLoggedIn() {
+    localStorage.setItem('isLoggedIn', 'true');
   }
 
-  getActiveUserId() {
-    return localStorage.getItem('userId');
+  getUser() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      return JSON.parse(user) as User;
+    }
+    return null;
+  }
+
+  private setUser(user: string) {
+    localStorage.setItem('user', user);
   }
 }

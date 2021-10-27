@@ -9,10 +9,10 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  user: User | null | undefined;
+  user: User | null;
 
-  constructor(private userService: UserService, private router: Router) {
-    this.userService.initialize().then((user) => (this.user = user));
+  constructor(private userService: UserService) {
+    this.user = this.userService.getUser();
   }
 
   logout() {

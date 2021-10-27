@@ -18,6 +18,7 @@ export class LoginComponent {
   get password() {
     return this.form.get('password')!;
   }
+
   loginFailed = false;
   loginFailedMessage = 'Something went wrong';
 
