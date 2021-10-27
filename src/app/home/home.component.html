@@ -1,35 +1,29 @@
-<div class="container py-5">
-  <div class="row d-flex align-items-center justify-content-center">
-    <div class="col-md-5 card my-3">
-      <div class="card-body">
-        <img
-          class="profile-image circle d-block m-auto"
-          src="../../assets/person.jpg"
-          alt="Profile"
-        />
-        <div class="text-center my-3">
+<div class="row d-flex justify-content-center">
+  <div class="col-md-5 card p-0 border-0">
+    <div class="card-body p-0">
+      <div class="sticky-top p-5 min-vh-100 d-flex align-items-center">
+        <div class="text-center">
+          <img
+            class="profile-image circle mb-5"
+            src="../../assets/person.jpg"
+            alt="Profile"
+          />
           <h2 class="fw-bold">{{ user?.name }}</h2>
           <p>{{ user?.email }}</p>
           <p class="fst-italic">{{ user?.favoriteGenre }}</p>
+          <button class="btn btn-dark btn-login" (click)="logout()">
+            LOGOUT
+          </button>
         </div>
       </div>
     </div>
-    <div class="col-md-5 my-3 book-list">
-      <ul *ngFor="let book of user?.books">
-        <li>
-          <p class="m-0">{{ book.title }}</p>
-          <p class="fst-italic">
-            {{ book.author }}
-            ({{ book.year }})
-          </p>
-        </li>
-      </ul>
-    </div>
   </div>
-  <div class="row mb-3">
-    <div class="col-md-11 d-flex justify-content-end">
-      <button class="btn btn-dark btn-login" (click)="logout()">LOGOUT</button>
-    </div>
-    <div class="col-md-1"></div>
+  <div class="col-md-7 card border-0 py-5 d-flex align-items-center">
+    <ul *ngFor="let book of user?.books" class="list-group">
+      <li class="list-group-item mb-2">
+        <strong class="m-0">{{ book.title }}</strong>
+        <div>{{ book.author }} ({{ book.year }})</div>
+      </li>
+    </ul>
   </div>
 </div>
