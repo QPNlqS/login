@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeBackendProvider } from './fakeBackendProvider';
+import { fakeBackendProvider } from './backend/fakeBackendProvider';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent],

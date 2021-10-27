@@ -1,22 +1,17 @@
 import {
-  HttpClient,
-  HttpEvent,
-  HttpHandler,
   HttpInterceptor,
   HttpRequest,
   HttpResponse,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { User } from './models/user';
+import { User } from '../models/user';
 import * as testUser from './user.json';
 
 @Injectable()
 export class FakeBackendHttpInterceptor implements HttpInterceptor {
-  constructor(private http: HttpClient) {}
-
   intercept(req: HttpRequest<any>) {
     const { url, params } = req;
     const user: User = testUser;
@@ -26,13 +21,13 @@ export class FakeBackendHttpInterceptor implements HttpInterceptor {
       params.get('password') == user.password
     ) {
       return of(new HttpResponse({ status: 200, body: user.id })).pipe(
-        delay(500)
+        delay(1000)
       );
     }
     if (url.endsWith('/initialize')) {
-      return of(new HttpResponse({ status: 200, body: user })).pipe(delay(500));
+      return of(new HttpResponse({ status: 200, body: user }));
     }
-    return of(new HttpResponse({ status: 400 })).pipe(delay(500));
+    return of(new HttpResponse({ status: 400 })).pipe(delay(1000));
   }
 }
 
