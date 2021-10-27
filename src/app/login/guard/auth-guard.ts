@@ -6,9 +6,13 @@ import { UserService } from '../../services/user.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   canActivate() {
-    return this.userService.isUserLoggedIn();
+    if (!this.userService.isUserLoggedIn()) {
+      this.router.navigate(['login']);
+      return false;
+    }
+    return true;
   }
 }

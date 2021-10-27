@@ -69,6 +69,86 @@
       "title": "Lord of the Rings",
       "author": "Tolkien, J.R.",
       "year": 1937
+    },
+    {
+      "title": "Huckleberry Finn",
+      "author": "Twain, Mark",
+      "year": 1865
+    },
+    {
+      "title": "Bleak House",
+      "author": "Dickens, Charles",
+      "year": 1870
+    },
+    {
+      "title": "Tom Sawyer",
+      "author": "Twain, Mark",
+      "year": 1862
+    },
+    {
+      "title": "A Room of One's Own",
+      "author": "Woolf, Virginia",
+      "year": 1922
+    },
+    {
+      "title": "Harry Potter",
+      "author": "Rowling, J.K.",
+      "year": 2000
+    },
+    {
+      "title": "One Hundred Years of Solitude",
+      "author": "Marquez",
+      "year": 1967
+    },
+    {
+      "title": "Hamlet, Prince of Denmark",
+      "author": "Shakespeare",
+      "year": 1603
+    },
+    {
+      "title": "Lord of the Rings",
+      "author": "Tolkien, J.R.",
+      "year": 1937
+    },
+    {
+      "title": "Huckleberry Finn",
+      "author": "Twain, Mark",
+      "year": 1865
+    },
+    {
+      "title": "Bleak House",
+      "author": "Dickens, Charles",
+      "year": 1870
+    },
+    {
+      "title": "Tom Sawyer",
+      "author": "Twain, Mark",
+      "year": 1862
+    },
+    {
+      "title": "A Room of One's Own",
+      "author": "Woolf, Virginia",
+      "year": 1922
+    },
+    {
+      "title": "Harry Potter",
+      "author": "Rowling, J.K.",
+      "year": 2000
+    },
+    {
+      "title": "One Hundred Years of Solitude",
+      "author": "Marquez",
+      "year": 1967
+    },
+    {
+      "title": "Hamlet, Prince of Denmark",
+      "author": "Shakespeare",
+      "year": 1603
+    },
+    {
+      "title": "Lord of the Rings",
+      "author": "Tolkien, J.R.",
+      "year": 1937
     }
   ]
 }
