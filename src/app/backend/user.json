@@ -6,24 +6,29 @@
   "favoriteGenre": "Graphic Novels, Adventure, Memoirs",
   "books": [
     {
-      "title": "Northanger Abbey",
-      "author": "Austen, Jane",
-      "year": 1814
+      "title": "Half of a Yellow Sun",
+      "author": "Adichie, Chimamanda Ngozi",
+      "year": 2006
     },
     {
-      "title": "War and Peace",
-      "author": "Tolstoy, Leo",
-      "year": 1865
+      "title": "Refactoring UI",
+      "author": "Wathan, Adam",
+      "year": 2018
     },
     {
-      "title": "Anna Karenina",
-      "author": "Tolstoy, Leo",
-      "year": 1875
+      "title": "Why We Sleep",
+      "author": "Walker, Matthew",
+      "year": 2017
     },
     {
-      "title": "Mrs. Dalloway",
-      "author": "Woolf, Virginia",
-      "year": 1925
+      "title": "The Design of Everyday Things",
+      "author": "Norman, Donald A.",
+      "year": 2002
+    },
+    {
+      "title": "Educated",
+      "author": "Westover, Tara",
+      "year": 2018
     },
     {
       "title": "The Hours",
