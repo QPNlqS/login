@@ -5,7 +5,6 @@ import {
 } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from './user.service';
-import { User } from '../models/user';
 import { HomeComponent } from '../home/home.component';
 
 describe('UserService', () => {
@@ -25,10 +24,6 @@ describe('UserService', () => {
     httpMock = TestBed.inject(HttpTestingController);
   });
 
-  // afterEach(() => {
-  //   httpMock.verify();
-  // });
-
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -37,7 +32,7 @@ describe('UserService', () => {
     'should perform a successful login',
     waitForAsync(async () => {
       // Given
-      const email = 'jane@dampf.de';
+      const email = 'test@test.de';
       const password = '123';
       const url = 'http://localhost:4200/user/login';
       const urlWithParams = `${url}?email=${email}&password=${password}`;
@@ -60,7 +55,7 @@ describe('UserService', () => {
     'should perform an UNsuccessful login',
     waitForAsync(async () => {
       // Given
-      const email = 'hans@dampf.de';
+      const email = 'test@test.de';
       const password = '123';
       const url = 'http://localhost:4200/user/login';
       const urlWithParams = `${url}?email=${email}&password=${password}`;
