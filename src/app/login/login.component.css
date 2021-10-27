@@ -8,6 +8,7 @@
 
 .form-control {
   min-width: 120px;
+  display: block !important;
 }
 
 .formgroup {
@@ -25,4 +26,8 @@
   .cover-image {
     max-height: 50vh;
   }
+}
+
+.invalid {
+  color: red;
 }

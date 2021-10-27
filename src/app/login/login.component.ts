@@ -20,22 +20,20 @@ export class LoginComponent {
   }
 
   loginFailed = false;
-  loginFailedMessage = 'Something went wrong';
+  loginFailedMessage = 'Something went wrong.';
 
   constructor(private userService: UserService) {}
 
   async login() {
     if (this.form.invalid) {
-      this.form.markAllAsTouched();
       this.loginFailed = true;
       this.loginFailedMessage = 'Please provide valid credentials.';
-      return;
     } else {
-      const success = await this.userService.login(
+      const successful = await this.userService.login(
         this.email.value,
         this.password.value
       );
-      if (!success) {
+      if (!successful) {
         this.loginFailed = true;
         this.loginFailedMessage = 'Wrong credentials. Please try again.';
       }

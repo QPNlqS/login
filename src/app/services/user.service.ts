@@ -19,11 +19,11 @@ export class UserService {
         observe: 'response',
       })
       .toPromise();
-    const isSuccessful = res.ok && res.body;
-    if (isSuccessful) {
+    const successful = res.ok && res.body;
+    if (successful) {
       this.completeLogin(res.body!);
     }
-    return isSuccessful;
+    return successful;
   }
 
   private completeLogin(user: User) {
