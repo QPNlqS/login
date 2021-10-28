@@ -27,13 +27,13 @@ export class UserService {
   }
 
   private completeLogin(user: User) {
-    this.setIsLoggedIn();
+    this.setIsLoggedIn(true);
     this.setUser(JSON.stringify(user));
     this.router.navigate(['home']);
   }
 
   logoutUser() {
-    localStorage.setItem('isLoggedIn', 'false');
+    this.setIsLoggedIn(false);
     localStorage.removeItem('user');
     this.router.navigate(['login']);
   }
@@ -42,8 +42,8 @@ export class UserService {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
 
-  private setIsLoggedIn() {
-    localStorage.setItem('isLoggedIn', 'true');
+  private setIsLoggedIn(status: boolean) {
+    localStorage.setItem('isLoggedIn', status + '');
   }
 
   getUser() {

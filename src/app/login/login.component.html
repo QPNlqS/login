@@ -1,6 +1,6 @@
-<div class="row d-flex py-5 align-items-center justify-content-center">
+<div class="row py-5 d-flex align-items-center justify-content-center">
   <div class="col-md-5 card border-0">
-    <div class="card-body">
+    <div class="card-body p-0 d-flex justify-content-center">
       <img class="cover-image" src="../../assets/library.jpg" alt="Library" />
     </div>
   </div>
@@ -12,20 +12,17 @@
           Virtual Library
         </h1>
         <div class="row mb-3">
-          <label for="email" class="col-md-2 col-form-label text-label"
-            >Email</label
-          >
+          <label for="email" class="col-md-2 col-form-label text-label">
+            Email
+          </label>
           <div class="col-md">
             <input
               id="email"
               type="email"
-              class="form-control d-block"
+              class="form-control"
               formControlName="email"
             />
-            <div
-              *ngIf="email.invalid && (email.touched || email.dirty)"
-              class="invalid"
-            >
+            <div *ngIf="email.invalid && (email.touched || email.dirty)">
               <small *ngIf="email.errors?.required" class="text-danger"
                 >Email is required.</small
               >
@@ -43,12 +40,11 @@
             <input
               id="password"
               type="password"
-              class="form-control d-block"
+              class="form-control"
               formControlName="password"
             />
             <div
               *ngIf="password.invalid && (password.touched || password.dirty)"
-              class="invalid"
             >
               <small *ngIf="password.errors?.required" class="text-danger">
                 Password is required.
@@ -56,7 +52,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-dark btn-login mt-3" (click)="login()">
+        <button class="btn btn-dark login-btn mt-3" (click)="login()">
           LOGIN
         </button>
         <div *ngIf="loginFailed" class="text-danger text-center mt-1">

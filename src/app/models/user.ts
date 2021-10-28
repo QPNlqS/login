@@ -7,7 +7,7 @@ export interface User {
   books: Book[];
 }
 
-export interface Book {
+interface Book {
   title: string;
   author: string;
   year: number;

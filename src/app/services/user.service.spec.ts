@@ -13,12 +13,7 @@ describe('UserService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule.withRoutes([
-          { path: 'home', component: HomeComponent },
-        ]),
-      ],
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([])],
     });
     service = TestBed.inject(UserService);
     httpMock = TestBed.inject(HttpTestingController);
