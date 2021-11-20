@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../models/user';
+import { UserData } from '../models/user';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  user: User | null;
+  user: UserData | null;
 
   constructor(private userService: UserService) {
     this.user = this.userService.getUser();

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../models/user';
+import { UserData } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -9,15 +9,21 @@ import { User } from '../models/user';
 export class UserService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  async login(email: string, password: string): Promise<boolean | User | null> {
+  async login(
+    email: string,
+    password: string
+  ): Promise<boolean | UserData | null> {
     const res = await this.http
-      .get<User>('http://localhost:4200/user/login', {
-        params: {
+      .post<UserData>(
+        'http://localhost:4200/user/login',
+        {
           email,
           password,
         },
-        observe: 'response',
-      })
+        {
+          observe: 'response',
+        }
+      )
       .toPromise();
     const successful = res.ok && res.body;
     if (successful) {
@@ -26,7 +32,7 @@ export class UserService {
     return successful;
   }
 
-  private completeLogin(user: User) {
+  private completeLogin(user: UserData) {
     this.setIsLoggedIn(true);
     this.setUser(JSON.stringify(user));
     this.router.navigate(['home']);
@@ -49,7 +55,7 @@ export class UserService {
   getUser() {
     const user = localStorage.getItem('user');
     if (user) {
-      return JSON.parse(user) as User;
+      return JSON.parse(user) as UserData;
     }
     return null;
   }

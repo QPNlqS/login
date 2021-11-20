@@ -9,10 +9,8 @@
 .text-label {
   min-width: 95px;
 }
-
 .form-control {
   min-width: 120px;
-  display: block !important;
 }
 
 .cover-image {

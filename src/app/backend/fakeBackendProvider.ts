@@ -7,18 +7,20 @@ import {
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { User } from '../models/user';
-import * as testUser from './user.json';
+import { UserData, UserAuth } from '../models/user';
+import * as userData from './userData.json';
+import * as userAuth from './userAuth.json';
 
 @Injectable()
 export class FakeBackendHttpInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>) {
-    const { url, params } = req;
-    const user: User = testUser;
+    const { url, body } = req;
+    const user: UserData = userData;
+    const auth: UserAuth = userAuth;
     if (
       url.endsWith('/login') &&
-      params.get('email') == user.email &&
-      params.get('password') == user.password
+      body.email == auth.email &&
+      body.password == auth.password
     ) {
       return of(new HttpResponse({ status: 200, body: user })).pipe(
         delay(1000)

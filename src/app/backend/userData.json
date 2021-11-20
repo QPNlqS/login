@@ -2,7 +2,6 @@
   "id": "123456",
   "name": "Jane Dampf",
   "email": "jane@dampf.de",
-  "password": "123",
   "favoriteGenre": "Graphic Novels, Adventure, Memoirs",
   "books": [
     {

@@ -1,10 +1,14 @@
-export interface User {
+export interface UserData {
   id: string;
   name: string;
   email: string;
-  password: string;
   favoriteGenre: string;
   books: Book[];
+}
+
+export interface UserAuth {
+  email: string;
+  password: string;
 }
 
 interface Book {
