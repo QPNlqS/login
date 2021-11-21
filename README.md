@@ -1,4 +1,4 @@
-# Login Example App
+# Simple Login Example App with Angular
 
 ![Demo of simple Login App](./src/assets/login-example.gif)
 
