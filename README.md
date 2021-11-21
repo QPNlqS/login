@@ -6,6 +6,11 @@
 
 This is a simple login example app built with Angular. The backend functionality is faked using the HttpInterceptor and saving data in the local storage.
 
+[Try it out here](https://qpnlqs.github.io/login) and use the credentials:
+
+- Email: `jane@dampf.de`
+- Password: `123`
+
 ## Development
 
 - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
